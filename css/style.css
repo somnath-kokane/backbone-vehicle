@@ -1,0 +1,15 @@
+ .icon-search {
+	position: absolute;
+	top: 10px;
+	text-indent: -10px;
+	right: 0px;
+	right: 10px\0;
+ }
+ 
+ .form-group-search  {
+	position: relative;
+ }
+ 
+ .form-control-search {
+	padding-right: 22px;
+ }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Ness Code Excersice">
+        <meta name="author" content="Somnath Kokane">
+		<title>Module - Vehicle</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+		<link rel="stylesheet" href="css/style.css">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+		  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+		<script src="js/libs/backbone.search.min.js"></script>
+        <script src="js/modules/vehicle.js"></script>
+    </head>
+    <body>
+        <header id="header" class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">Module - Vehicle</a>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div id="vehicle-form">&nbsp;</div>
+				</div>
+				<div id="vehicle-list" class="table-responsive"></div>
+				<div class="panel-footer" style="min-height:55px;">
+					<div class="btn-group pull-right">
+						<button class="btn btn-default btn-json">JSON</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/x-template" id="vehicle-list-template">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Make</th>
+					<th>Model</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</script>
+		<script type="text/x-template" id="vehicle-list-item-template">
+			<td><%=type%></td>
+			<td><%=make%></td>
+			<td><%=model%></td>
+		</script>
+		<script type="text/x-template" id="vehicle-form-template">
+			<div class="form-group">
+				<label class="sr-only" for="">Type</label>
+				<select class="form-control" name="type" required>
+				<option value="">Select a type</option>
+				<%_.each(type, function(item){%>
+					<option value="<%=item.name%>"><%=item.name%></option>
+				<%})%>
+				</select>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="">Make</label>
+				<input type="text" name="make" class="form-control" placeholder="Enter Make" required>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="">Model</label>
+				<input type="text" name="model" class="form-control" placeholder="Enter Model" required>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+			</div>
+			<div class="form-group form-group-search pull-right">
+				<label class="sr-only">Search</label>
+				<input type="search" class="form-control form-control-search" placeholder="Search">
+				<span class="glyphicon glyphicon-search icon-search"></span>
+			</div>
+		</script>
+		<script type="text/x-template" id="dailog-template">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><%=title%></h4>
+				  </div>
+				  <div class="modal-body">
+					<%=body%>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				  </div>
+				</div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+		</script>
+    </body>
+</html>
